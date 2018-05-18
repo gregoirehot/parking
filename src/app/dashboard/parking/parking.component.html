@@ -1,0 +1,52 @@
+<div id="parking">
+
+  <div class="title-section">
+    <div>Places de parking disponibles</div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Place #</th>
+        <th scope="col">Etat</th>
+        <th scope="col">Date</th>
+        <th scope="col">Conducteur</th>
+        <th scope="col">Changer l'état</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of listParkings | visiblepipe:true">
+        <th scope="row">
+          <button type="button" class="btn btn-link" (click)="open(content,p.id)">{{p.title}}</button>
+        </th>
+        <td><span class="badge badge-success">Libre</span></td>
+        <td>10/10/2018</td>
+        <td>Dupond Charles</td>
+        <td>
+          <button type="button" class="btn btn-outline-primary">Prendre la place</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{titleProject}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-carousel>
+      <ng-template *ngFor="let img of listImgs | visiblepipe:true" ngbSlide>
+        <img [src]="img.source" [alt]=img.label>
+        <div class="carousel-caption">
+          <h3>{{img.label}}</h3>
+          <p [innerHTML]=img.description></p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</ng-template>
+
+</div>

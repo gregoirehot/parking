@@ -1,0 +1,67 @@
+*[parallax] {
+    width: 100%;
+    height: 300px;
+    background-size: 100%;
+}
+
+.home{
+    background:  url('/assets/img/parking.jpg') no-repeat scroll 0 0 / cover;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    background-position: center center;
+    height: 18rem;
+}
+
+.home:before {
+    background: rgba(0, 63, 187, 0.3);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+
+.text-center {
+    text-align: center;
+}
+
+.home-area-table{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.home-text, .cursor {
+    color: #fff;
+}
+
+.home-area-tablecell{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+h1{
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+@keyframes blink-cursor {
+    from, to {
+        color : transparent
+    }
+    50% {
+        color: #fff;
+    }
+}
+
+h2{
+    margin: 10px 0px;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
