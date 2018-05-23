@@ -16,9 +16,16 @@ export class ParkingComponent implements OnInit {
 
   listParkings: Parking[];
   listImgs: Images[];
-  titleProject:string;
+  titleProject: string;
 
-  constructor(private modalService: NgbModal, private _parkingService: ParkingService) { }
+  typeModal: string;
+  conductor: string;
+  idParking: number;
+
+  constructor(private modalService: NgbModal, private _parkingService: ParkingService) {
+    this.typeModal = '';
+    this.conductor = '';
+  }
 
   ngOnInit() {
     this.getListParkings();
@@ -28,10 +35,39 @@ export class ParkingComponent implements OnInit {
     this.listParkings = this._parkingService.getParkings();
   }
 
-  open(content, id) {
+  open(content, id, type) {
+    this.typeModal = type;
+    this.conductor = '';
     this.modalService.open(content);
     if (id) {
+      this.idParking = id;
       this.getListImgs(id);
+    }
+  }
+
+  updateParking() {
+    this.listParkings.map(p => {
+      if (this.idParking === p.id) {
+        p.conducteur = this.conductor
+        p.libre = false;
+        p.date = new Date();
+      }
+    })
+    if (this.listParkings) {
+      this._parkingService.updateParking(this.listParkings);
+    }
+  }
+
+  removeParking() {
+    this.listParkings.map(p => {
+      if (this.idParking === p.id) {
+        p.conducteur = ''
+        p.libre = true;
+        p.date = null;
+      }
+    })
+    if (this.listParkings) {
+      this._parkingService.updateParking(this.listParkings);
     }
   }
 

@@ -5,47 +5,46 @@ export const PARKINGS: Parking[] = [
         id: 1,
         title: '13',
         libre: true,
-        date: '',
-        conducteur: '',
+        conducteur: 'Alexandre Cliquennois',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place13.jpg',
                 description: '',
                 visible: true
             },
         ],
-        visible: true
+        visible: true,
+        reserve: true
     },
     {
         id: 2,
         title: '14',
         libre: true,
-        date: '',
-        conducteur: '',
+        conducteur: 'Frédéric Dumont',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place14.jpg',
                 description: '',
                 visible: true
             },
         ],
-        visible: true
+        visible: true,
+        reserve: true
     },
     {
         id: 3,
         title: '14 Moto A',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place14moto.jpg',
                 description: '',
                 visible: true
             },
@@ -56,13 +55,12 @@ export const PARKINGS: Parking[] = [
         id: 4,
         title: '14 Moto B',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place14moto.jpg',
                 description: '',
                 visible: true
             },
@@ -71,15 +69,14 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 5,
-        title: '15',
+        title: '14 Moto C',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place14moto.jpg',
                 description: '',
                 visible: true
             },
@@ -88,15 +85,14 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 6,
-        title: '16',
+        title: '15',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place15.jpg',
                 description: '',
                 visible: true
             },
@@ -105,15 +101,14 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 7,
-        title: '17',
+        title: '16',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place16.jpg',
                 description: '',
                 visible: true
             },
@@ -122,15 +117,14 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 8,
-        title: '18',
+        title: '17',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place17.jpg',
                 description: '',
                 visible: true
             },
@@ -139,32 +133,31 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 9,
-        title: '19',
+        title: '18',
         libre: true,
-        date: '',
-        conducteur: '',
+        conducteur: 'Laurent Louchez',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place18.jpg',
                 description: '',
                 visible: true
             },
         ],
-        visible: true
+        visible: true,
+        reserve: true
     },
     {
         id: 10,
-        title: '20',
+        title: '19',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place19.jpg',
                 description: '',
                 visible: true
             },
@@ -173,15 +166,14 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 11,
-        title: '21',
+        title: '20',
         libre: true,
-        date: '',
         conducteur: '',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place20.jpg',
                 description: '',
                 visible: true
             },
@@ -190,19 +182,36 @@ export const PARKINGS: Parking[] = [
     },
     {
         id: 12,
-        title: '22',
+        title: '21',
         libre: true,
-        date: '',
-        conducteur: '',
+        conducteur: 'Julien Dirson',
         images: [
             {
                 id: 1,
                 label: 'Image 1',
-                source: 'http://placehold.it/700x300',
+                source: 'assets/img/place21.jpg',
                 description: '',
                 visible: true
             },
         ],
-        visible: true
+        visible: true,
+        reserve: true
+    },
+    {
+        id: 13,
+        title: '22',
+        libre: true,
+        conducteur: 'Clément Grenez',
+        images: [
+            {
+                id: 1,
+                label: 'Image 1',
+                source: 'assets/img/place22.jpg',
+                description: '',
+                visible: true
+            },
+        ],
+        visible: true,
+        reserve: true
     }
 ]

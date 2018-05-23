@@ -5,3 +5,14 @@
 .img-main img{
     cursor: pointer;
 }
+
+.modal-body img{
+    width: 29.3rem;
+}
+
+.cursor-link{
+    cursor:pointer;
+    font-weight: 400;
+    color: #0275d8;
+    border-radius: 0;
+}

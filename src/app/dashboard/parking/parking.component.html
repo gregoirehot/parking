@@ -7,46 +7,72 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Place #</th>
         <th scope="col">Etat</th>
+        <th scope="col">Place #</th>
         <th scope="col">Date</th>
         <th scope="col">Conducteur</th>
-        <th scope="col">Changer l'état</th>
+        <th class="text-center" scope="col">Changer l'état</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let p of listParkings | visiblepipe:true">
         <th scope="row">
-          <button type="button" class="btn btn-link" (click)="open(content,p.id)">{{p.title}}</button>
+          <span *ngIf="p.libre && !p.reserve" class="badge badge-success">Libre</span>
+          <span *ngIf="!p.libre && !p.reserve" class="badge badge-danger">Occupé</span>
+          <span *ngIf="p.reserve" class="badge badge-warning">Réservé</span>
         </th>
-        <td><span class="badge badge-success">Libre</span></td>
-        <td>10/10/2018</td>
-        <td>Dupond Charles</td>
         <td>
-          <button type="button" class="btn btn-outline-primary">Prendre la place</button>
+          <div class="cursor-link" (click)="open(content,p.id,'image')">{{p.title}}</div>
+        </td>
+        <td>
+          <span *ngIf="p.date">{{p.date | date: 'dd'}}/{{p.date | date:'MM'}}/{{p.date | date: 'yyyy'}} {{p.date | date: 'H'}}:{{p.date | date:
+            'mm'}}:{{p.date | date: 'ss'}}</span>
+        </td>
+        <td>
+          <span>{{p.conducteur}}</span>
+        </td>
+        <td class="text-center">
+          <button *ngIf="p.libre && !p.reserve" type="button" (click)="open(content,p.id,'form')" class="btn btn-primary">Prendre la place</button>
+          <button *ngIf="!p.libre && !p.reserve" type="button" (click)="open(content,p.id,'remove')" class="btn btn-outline-primary">Vider la place</button>
+          <span *ngIf="p.reserve" class="badge badge-warning">Réservé</span>
         </td>
       </tr>
     </tbody>
   </table>
 
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{titleProject}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <ngb-carousel>
-      <ng-template *ngFor="let img of listImgs | visiblepipe:true" ngbSlide>
-        <img [src]="img.source" [alt]=img.label>
-        <div class="carousel-caption">
-          <h3>{{img.label}}</h3>
-          <p [innerHTML]=img.description></p>
+  <!--TODO faire un component-->
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">{{titleProject}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="typeModal === 'image'">
+        <div *ngFor="let img of listImgs | visiblepipe:true">
+          <img [src]="img.source" [alt]=img.label>
         </div>
-      </ng-template>
-    </ngb-carousel>
-  </div>
-</ng-template>
+      </div>
+      <div *ngIf="typeModal === 'form'">
+        <div class="form-group">
+          <label for="inputConductor">Conducteur</label>
+          <input class="form-control" id="inputConductor" name="conductor" type="text" [(ngModel)]="conductor">
+        </div>
+        <div class="text-center">
+          <button type="button" (click)="updateParking();d('form click');" class="btn btn-primary">Valider</button>
+        </div>
+      </div>
+      <div *ngIf="typeModal === 'remove'">
+        <div class="form-group">
+          <label for="inputConductor">Êtes-vous sûr de vider cette place ?</label>
+        </div>
+        <div class="text-center">
+          <button type="button" (click)="removeParking();d('remove click');" class="btn btn-success">Oui</button>
+          <button type="button" (click)="d('remove non click');" class="btn btn-warning">Non</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 
 </div>

@@ -2,10 +2,11 @@ export class Parking {
     id: number;
     title: string;
     libre: boolean;
-    date?: string;
+    date?: Date;
     conducteur?:string;
     images?: Images[];
     visible: boolean;
+    reserve? :boolean;
 }
 
 export class Images {

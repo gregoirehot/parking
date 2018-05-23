@@ -5,12 +5,12 @@
 }
 
 .home{
-    background:  url('/assets/img/parking.jpg') no-repeat scroll 0 0 / cover;
+    background:  url('assets/img/parking.jpg') no-repeat scroll 0 0 / cover;
     background-size: cover;
     position: relative;
     height: 100%;
     background-position: center center;
-    height: 18rem;
+    height: 15rem;
 }
 
 .home:before {

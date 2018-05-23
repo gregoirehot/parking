@@ -15,4 +15,11 @@ export class ParkingService {
     return JSON.parse(localStorage.getItem("parkings"));;
   }
 
+
+  updateParking(parkings) {
+    if (parkings) {
+      localStorage.setItem("parkings", JSON.stringify(parkings));
+    }
+  }
+
 }
