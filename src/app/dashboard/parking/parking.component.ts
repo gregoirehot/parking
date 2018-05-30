@@ -46,11 +46,11 @@ export class ParkingComponent implements OnInit {
   }
 
   updateParking() {
-    this.listParkings.map(p => {
+    this.listParkings.forEach(p => {
       if (this.idParking === p.id) {
         p.conducteur = this.conductor
-        p.libre = false;
-        p.date = new Date();
+        p.libre = false
+        p.date = new Date()
       }
     })
     if (this.listParkings) {
@@ -59,11 +59,11 @@ export class ParkingComponent implements OnInit {
   }
 
   removeParking() {
-    this.listParkings.map(p => {
+    this.listParkings.forEach(p => {
       if (this.idParking === p.id) {
         p.conducteur = ''
-        p.libre = true;
-        p.date = null;
+        p.libre = true
+        p.date = null
       }
     })
     if (this.listParkings) {
@@ -71,11 +71,16 @@ export class ParkingComponent implements OnInit {
     }
   }
 
+  clearParking() {
+    this._parkingService.clearParking();
+    this.getListParkings();
+  }
+
   getListImgs(id) {
     this.listImgs = [];
     this.listParkings.map(p => {
       if (p.id === id) {
-        this.titleProject = p.title;
+        this.titleProject = p.title
         this.listImgs = p.images
       }
     });

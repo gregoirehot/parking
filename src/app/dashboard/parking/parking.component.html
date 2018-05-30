@@ -4,6 +4,15 @@
     <div>Places de parking disponibles</div>
   </div>
 
+  <div class="row">
+    <div class="col"></div>
+    <div class="col text-right">
+      <h2>
+        <button type="button" (click)="open(content,'','zero')" class="btn btn-danger">Remettre à zéro</button>
+      </h2>
+    </div>
+  </div>
+
   <table class="table">
     <thead>
       <tr>
@@ -34,7 +43,6 @@
         <td class="text-center">
           <button *ngIf="p.libre && !p.reserve" type="button" (click)="open(content,p.id,'form')" class="btn btn-primary">Prendre la place</button>
           <button *ngIf="!p.libre && !p.reserve" type="button" (click)="open(content,p.id,'remove')" class="btn btn-outline-primary">Vider la place</button>
-          <span *ngIf="p.reserve" class="badge badge-warning">Réservé</span>
         </td>
       </tr>
     </tbody>
@@ -70,6 +78,15 @@
         <div class="text-center">
           <button type="button" (click)="removeParking();d('remove click');" class="btn btn-success">Oui</button>
           <button type="button" (click)="d('remove non click');" class="btn btn-warning">Non</button>
+        </div>
+      </div>
+      <div *ngIf="typeModal === 'zero'">
+        <div class="form-group">
+          <label for="inputConductor">Êtes-vous sûr de remettre à zéro ?</label>
+        </div>
+        <div class="text-center">
+          <button type="button" (click)="clearParking();d('clear click');" class="btn btn-success">Oui</button>
+          <button type="button" (click)="d('clear non click');" class="btn btn-warning">Non</button>
         </div>
       </div>
     </div>

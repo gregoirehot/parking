@@ -12,9 +12,8 @@ export class ParkingService {
     if (!parkings) {
       localStorage.setItem("parkings", JSON.stringify(PARKINGS));
     }
-    return JSON.parse(localStorage.getItem("parkings"));;
+    return JSON.parse(localStorage.getItem("parkings"));
   }
-
 
   updateParking(parkings) {
     if (parkings) {
@@ -22,4 +21,7 @@ export class ParkingService {
     }
   }
 
+  clearParking() {
+    localStorage.setItem("parkings", JSON.stringify(PARKINGS));
+  }
 }
